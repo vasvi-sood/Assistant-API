@@ -17,7 +17,7 @@ const assistant = new AssistantV2({
   authenticator: authenticator,
   url: process.env.WATSON_ASSISTANT_URL,
 });
-
+console.log('Here');
 // 3. Route to Handle Session Tokens
 // GET /api/watson/session
 router.get("/session", async (req, res) => {
@@ -30,7 +30,7 @@ router.get("/session", async (req, res) => {
 
     // If fail
   } catch (err) {
-    res.send("There was an error processing your request.");
+    res.send("There was an error processing your requestsssss.");
     console.log(err);
   }
 });
@@ -47,7 +47,7 @@ router.post("/message", async (req, res) => {
       text: req.body.input,
     },
   };
-
+console.log('Here1');
   // If successs
   try {
     const message = await assistant.message(payload);
@@ -59,6 +59,6 @@ router.post("/message", async (req, res) => {
     console.log(err);
   }
 });
-
+console.log('Here2');
 // 5. Export routes
 module.exports = router;
